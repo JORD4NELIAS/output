@@ -56,7 +56,7 @@
 			viewer.toggleSidebar();
 		});
 
-		let url = "../pointclouds/cloudtestepage/metadata.json";
+		let url = "../pointclouds/potree_converted/sources.json";
 		Potree.loadPointCloud(url).then(e => {
 			let pointcloud = e.pointcloud;
 			let material = pointcloud.material;
