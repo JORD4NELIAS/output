@@ -57,19 +57,18 @@
 		});
 		
 		
-
-		Potree.loadPointCloud("./pointclouds/cloudtestepage/metadata.json", "cloudtestepage", e => {
-			let scene = viewer.scene;
+		let url = "./pointclouds/cloudtestepage/metadata.json";
+		Potree.loadPointCloud(url).then(e => {
+			/*let scene = viewer.scene;*/
 			let pointcloud = e.pointcloud;
-			
 			let material = pointcloud.material;
-			material.size = 1;
-			material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
-			material.shape = Potree.PointShape.SQUARE;
+
 			material.activeAttributeName = "rgba";
+			material.minSize = 2;
+			material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+			/*material.shape = Potree.PointShape.SQUARE;*/
 			
-			scene.addPointCloud(pointcloud);
-			
+			scene.scene.addPointCloud(pointcloud);
 			viewer.fitToScreen();
 		});
 
